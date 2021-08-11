@@ -1,11 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import User from './User';
+import Loader from '../components/Loader';
+import './styles/ListOfUsers.css'
 
 function ListOfUsers({data}) {
 
     const [users, setUsers] = useState()
     const [loading, setLoading] = useState(true)
 
+    console.log(data);
 
     useEffect(() => {
         const usuarios = data.map((item) => (
@@ -14,7 +17,8 @@ function ListOfUsers({data}) {
                 lastName: item.name.last,
                 city: item.location.city,
                 country: item.location.country,
-                picture: item.picture.thumbnail,
+                picture: item.picture.large,
+                mail: item.email,
             }
         ))
         setUsers(usuarios)
@@ -28,7 +32,7 @@ function ListOfUsers({data}) {
     return (
         <div>
             {loading ? (
-                <p>Cargando...</p>
+                <Loader />
             ) : (
                 <User data={users} />
             )

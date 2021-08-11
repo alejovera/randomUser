@@ -1,0 +1,46 @@
+.card {
+    height: 250px;
+    width: 150px;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 1.2em 1.2em;
+}
+.cardContainer {
+    margin: 0.5em 0.1em;
+}
+.cardLink {
+    text-decoration: none;
+}
+.cardAction {
+    width: 150px;
+    margin: 0;
+    padding: 0;
+    height: 240px;
+}
+.cardMedia {
+    object-fit: contain;
+    height: 128px;
+    width: 128px;
+    /* border-radius: 150%; */
+}
+.cardContent {
+    height: 100px;
+    padding: 0.5em !important;
+}
+.cardTitle {
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0.2em 0 0.3em 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.cardInfo {
+    margin: 0.5em 0;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}

@@ -4,9 +4,9 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
-
+import './styles/User.css';
+import Loader from './Loader';
 
 function User({data}) {
 
@@ -15,43 +15,44 @@ function User({data}) {
     useEffect(() => {
         setLoading(false);
     }, [])
+
     
     return (
-        <div>
+        <div className="container">
             {loading ? (
-                <p>Cargando</p>
+                <Loader />
             ) : (
-                data.map((item) => (
-                    <Card>
-                    <CardActionArea>
-                        <CardMedia
-                        component="img"
-                        image={item.picture}
-                        title="Contemplative Reptile"
-                        />
-                        <CardContent>
-                            <h2>
-                                {item.name} {item.lastName}
-                            </h2>
-                            <p>
-                                {item.city}
-                            </p>
-                            <p>
-                                {item.country}
-                            </p>
-                        </CardContent>
-                    </CardActionArea>
-                    <CardActions>
-                        <Link to="/otro">
-                            <Button size="small" color="primary">
-                                Visit
-                            </Button>
+                    data.map((item) => (
+                        <Link to={`/${item.mail}`} className="cardLink">
+                            <div className="cardContainer">
+                                <Card className="card">
+                                    <CardActionArea className="cardAction">
+                                        <CardMedia
+                                        component="img"
+                                        image={item.picture}
+                                        className="cardMedia"
+                                        title="Contemplative Reptile"
+                                        />
+                                        <CardContent className="cardContent">
+                                            <h2 className="cardTitle">
+                                                {item.name} {item.lastName}
+                                            </h2>
+                                            <p className="cardInfo">
+                                                {item.city}
+                                            </p>
+                                            <p className="cardInfo">
+                                                {item.country}
+                                            </p>
+                                        </CardContent>
+                                    </CardActionArea>
+                                </Card>
+                            </div>
                         </Link>
-                    </CardActions>
-                </Card>
-                ))
+                        
+                    ))
                 
-            )}
+                )
+            }
         </div>
     )
 }

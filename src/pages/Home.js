@@ -1,17 +1,19 @@
 import React, {useEffect, useState} from 'react';
+import Loader from '../components/Loader.js';
 import ListOfUsers from '../components/ListOfUsers.js';
+import '../App.css'
 function Home() {
 
-    const [usersData, setUsersData] = useState({})
-    const [loading, setLoading] = useState(true)
+    const [usuariosDatita, setUsuariosDatita] = useState({})
+    const [cargando, setCargando] = useState(true)
 
     useEffect(() => {
-        fetch('https://randomuser.me/api/?results=10')
+        fetch('https://randomuser.me/api/?results=50')
             .then(response => response.json())
             .then(res => res.results)
             .then(initialResults => {
-                setUsersData(initialResults)
-                setLoading(false)
+                setUsuariosDatita(initialResults)
+                setCargando(false)
             })
             .catch(err => console.log(err.message))
         
@@ -24,11 +26,11 @@ function Home() {
     
     return (    
         <div>
-            <h1>Users:</h1>
-            {loading ? (
-                <p>Cargando</p>
+            <h1 className="AppTitle">Users:</h1>
+            {cargando ? (
+                <Loader />
             ): (
-                <ListOfUsers data={usersData} />
+                <ListOfUsers data={usuariosDatita} />
             )}
             
            
