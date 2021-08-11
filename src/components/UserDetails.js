@@ -3,9 +3,9 @@ import { useParams } from 'react-router-dom';
 
 function UserDetails() {
 
-    let params = useParams()
+    // let params = useParams()
 
-    console.log(params);
+    // console.log(params);
     
     return (
         <div>

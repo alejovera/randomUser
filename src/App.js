@@ -9,7 +9,7 @@ import UserDetails from './components/UserDetails'
 import './App.css';
 import Home from './pages/Home';
 
-import { useUsuario } from './context/userContext';
+// import { useUsuario } from './context/userContext';
 
 
 function App() {

@@ -1,16 +1,27 @@
 import React, {useState, useEffect} from 'react'
 import User from './User';
 import Loader from '../components/Loader';
+import { useUsuario } from '../context/userContext';
 import './styles/ListOfUsers.css'
 
 function ListOfUsers({data}) {
 
+    const { usersData } = useUsuario()
+
     const [users, setUsers] = useState()
     const [loading, setLoading] = useState(true)
 
-    console.log(data);
+    // if (Object.keys(usersData) > 2) {
+    //     setLoading(false)
+    // } else {
+    //     setLoading(true)
+    //     console.log('Object keys < 2');
+    // }
+
+
 
     useEffect(() => {
+
         const usuarios = data.map((item) => (
             {
                 name: item.name.first,
@@ -23,11 +34,8 @@ function ListOfUsers({data}) {
         ))
         setUsers(usuarios)
         setLoading(false)
-        // console.log(usuarios);
-
     }, [data])
     
-    // console.log(users);
 
     return (
         <div>

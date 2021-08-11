@@ -1,8 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import Loader from '../components/Loader.js';
 import ListOfUsers from '../components/ListOfUsers.js';
-import '../App.css'
+import '../App.css';
+import { useUsuario } from '../context/userContext';
+
 function Home() {
+
+    // const { usersData } = useUsuario() 
+    // console.log(usersData);
 
     const [usuariosDatita, setUsuariosDatita] = useState({})
     const [cargando, setCargando] = useState(true)

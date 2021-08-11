@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 
 const UsuarioContext = React.createContext()
 
-export function UsuarioProvider() {
+export function UsuarioProvider({children}) {
 
     const [usersData, setUsersData] = useState({})
     const [loading, setLoading] = useState(true)
@@ -20,14 +20,19 @@ export function UsuarioProvider() {
     },[]);
 
     const value = {usersData, loading}
-    console.log(value); 
+    // console.log(value); 
 
-    return <UsuarioContext.Provider value={value} />
+    return <UsuarioContext.Provider value={value}>{children}</UsuarioContext.Provider>
 }
 
 export function useUsuario() {
     const context = React.useContext(UsuarioContext)
-    console.log(context);
-    return context;
+    // console.log(context);
+    if (Object.keys(context) > 1) {
+        return context
+    } else if (Object.keys(context) === 0) {
+        console.log('Object keys === 0');
+    }
+    return context
 }
 

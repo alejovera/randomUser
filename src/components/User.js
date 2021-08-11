@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import { Link } from 'react-router-dom';
@@ -23,7 +22,7 @@ function User({data}) {
                 <Loader />
             ) : (
                     data.map((item) => (
-                        <Link to={`/${item.mail}`} className="cardLink">
+                        <Link key={item.mail} to={`/${item.mail}`} className="cardLink">
                             <div className="cardContainer">
                                 <Card className="card">
                                     <CardActionArea className="cardAction">
