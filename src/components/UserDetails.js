@@ -16,8 +16,8 @@ function UserDetails() {
         {
             name: item.name.first,
             lastName: item.name.last,
-            city: item.location.city,
-            country: item.location.country,
+            username: item.login.username,
+            cell: item.cell,
             picture: item.picture.large,
             mail: item.email,
         }
@@ -35,6 +35,9 @@ function UserDetails() {
     return (
         <div>
             <h1>{tryingFind.name} {tryingFind.lastName}</h1>
+            <p>{tryingFind.username}</p>
+            <p>{tryingFind.cell}</p>
+            <p>{tryingFind.mail}</p>
         </div>
     )
 }
