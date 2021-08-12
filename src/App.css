@@ -5,3 +5,10 @@
     font-size: 2em;
     margin: 0.7em 0 0 1.2em;
 }
+@media only screen and (max-width: 357px) {
+    .AppTitle {
+        font-size: 1.5em;
+        margin: 0.3em 0 0 0;
+        text-align: center;
+    }
+}

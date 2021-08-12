@@ -31,38 +31,32 @@ function UserDetails() {
     const tryingFind = usuarios.find(item => {
         JSON.stringify(item.mail);
         let paramString = paramParsed[0];
-        return item.mail == paramString;
+        return item.mail === paramString;
     })
     console.log(tryingFind);
 
         
     return (
         <div>
-            <Link to="/" style={{textDecoration: 'none'}}>
-                <Button
-                    style={{backgroundColor: 'rgba(0, 122, 201, 1)',
-                        color: 'white',
-                        marginTop: '1.5em',
-                        marginLeft: '1em'
-                    }}
-                    variant="contained"
-                    startIcon={<ArrowBackIcon />}
-                >
-                    See Users
-                </Button>
-            </Link>
-            {/* <ArrowBackIcon color="primary" style={{fontSize: 45}} /> */}
-        
+            <div className="buttonContainer">
+                <Link to="/" style={{textDecoration: 'none'}}>
+                    <Button
+                        className="userButton"
+                        style={{backgroundColor: 'rgba(0, 122, 201, 1)',
+                        }}
+                        variant="contained"
+                        startIcon={<ArrowBackIcon />}
+                    >
+                        See Users
+                    </Button>
+                </Link>
+            </div>
         <div className="userContainer">
             
             <div className="userGrid">
-                {/* <Badge color="primary" variant="dot" className="userBadge"
-                    anchorOrigin={{
-                        vertical: 'bottom',
-                        horizontal: 'right',
-                    }}> */}
-                <Avatar className="userAvatar" style={{width: "150px", height: "150px"}} src={tryingFind.picture} />
-                {/* </Badge> */}
+                <div className="avatarContainer">
+                    <Avatar className="userAvatar" style={{width: "150px", height: "150px"}} src={tryingFind.picture} />
+                </div>
                 <h1 className="userTitle">{tryingFind.name} {tryingFind.lastName}</h1>
                 <p className="userInfo userInfo_user">{tryingFind.username}</p>
                 <p className="userInfo userInfo_cell">{tryingFind.cell}</p>
