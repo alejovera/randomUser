@@ -6,10 +6,12 @@ import './styles/ListOfUsers.css'
 
 function ListOfUsers({data}) {
 
-    // const { usersData } = useUsuario()
+    const { usersData } = useUsuario()
 
     const [users, setUsers] = useState()
     const [loading, setLoading] = useState(true)
+
+    const userParsed = Object.values(usersData)
 
     // if (Object.keys(usersData) > 2) {
     //     setLoading(false)
@@ -24,7 +26,7 @@ function ListOfUsers({data}) {
 
     useEffect(() => {
 
-        const usuarios = data.map((item) => (
+        const usuarios = userParsed.map((item) => (
             {
                 name: item.name.first,
                 lastName: item.name.last,

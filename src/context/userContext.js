@@ -19,7 +19,7 @@ export function UsuarioProvider({children}) {
         
     },[]);
 
-    const value = {usersData}
+    const value = {usersData, loading}
     // console.log(value); 
 
     return <UsuarioContext.Provider value={value}>{children}</UsuarioContext.Provider>

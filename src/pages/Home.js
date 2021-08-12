@@ -6,23 +6,25 @@ import { useUsuario } from '../context/userContext';
 
 function Home() {
 
-    // const { usersData } = useUsuario() 
+    const { usersData, loading } = useUsuario() 
+    const userParsed = Object.values(usersData)
+
     // console.log(usersData);
 
-    const [usuariosDatita, setUsuariosDatita] = useState({})
+    // const [usuariosDatita, setUsuariosDatita] = useState({})
     const [cargando, setCargando] = useState(true)
 
-    useEffect(() => {
-        fetch('https://randomuser.me/api/?results=50&seed=abc')
-            .then(response => response.json())
-            .then(res => res.results)
-            .then(initialResults => {
-                setUsuariosDatita(initialResults)
-                setCargando(false)
-            })
-            .catch(err => console.log(err.message))
+    // useEffect(() => {
+    //     fetch('https://randomuser.me/api/?results=50&seed=abc')
+    //         .then(response => response.json())
+    //         .then(res => res.results)
+    //         .then(initialResults => {
+    //             setUsuariosDatita(initialResults)
+    //             setCargando(false)
+    //         })
+    //         .catch(err => console.log(err.message))
         
-    },[]);
+    // },[]);
 
     // console.log(usersData.results);
 
@@ -32,10 +34,10 @@ function Home() {
     return (    
         <div>
             <h1 className="AppTitle">Users:</h1>
-            {cargando ? (
+            {loading ? (
                 <Loader />
             ): (
-                <ListOfUsers data={usuariosDatita} />
+                <ListOfUsers data={userParsed} />
             )}
             
            
