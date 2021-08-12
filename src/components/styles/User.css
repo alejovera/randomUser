@@ -1,6 +1,8 @@
 .card {
     height: 250px;
     width: 150px;
+    padding: 0;
+    margin: 0;
 }
 .container {
     display: flex;
@@ -18,17 +20,22 @@
     width: 150px;
     margin: 0;
     padding: 0;
-    height: 240px;
+    /* height: 100%; */
 }
 .cardMedia {
     object-fit: contain;
     height: 128px;
     width: 128px;
+    /* margin-top: 0;
+    top: 0; */
     /* border-radius: 150%; */
 }
 .cardContent {
     height: 100px;
     padding: 0.5em !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 .cardTitle {
     font-size: 1.5em;

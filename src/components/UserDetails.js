@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, Redirect } from 'react-router-dom';
 import { Avatar, Button } from '@material-ui/core';
 // import Button from '@material-ui/core/Button';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
@@ -38,31 +38,38 @@ function UserDetails() {
         
     return (
         <div>
-            <div className="buttonContainer">
-                <Link to="/" style={{textDecoration: 'none'}}>
-                    <Button
-                        className="userButton"
-                        style={{backgroundColor: 'rgba(0, 122, 201, 1)',
-                        }}
-                        variant="contained"
-                        startIcon={<ArrowBackIcon />}
-                    >
-                        See Users
-                    </Button>
-                </Link>
-            </div>
-        <div className="userContainer">
-            
-            <div className="userGrid">
-                <div className="avatarContainer">
-                    <Avatar className="userAvatar" style={{width: "150px", height: "150px"}} src={tryingFind.picture} />
+            {tryingFind === undefined ? 
+                <Redirect to="/"/> 
+                :
+                <>
+                    <div className="buttonContainer">
+                    <Link to="/" style={{textDecoration: 'none'}}>
+                        <Button
+                            className="userButton"
+                            style={{backgroundColor: 'rgba(0, 122, 201, 1)',
+                            }}
+                            variant="contained"
+                            startIcon={<ArrowBackIcon />}
+                        >
+                            See Users
+                        </Button>
+                    </Link>
                 </div>
-                <h1 className="userTitle">{tryingFind.name} {tryingFind.lastName}</h1>
-                <p className="userInfo userInfo_user">{tryingFind.username}</p>
-                <p className="userInfo userInfo_cell">{tryingFind.cell}</p>
-                <p className="userInfo userInfo_mail">{tryingFind.mail}</p>
+            <div className="userContainer">
+                
+                <div className="userGrid">
+                    <div className="avatarContainer">
+                        <Avatar className="userAvatar" style={{width: "150px", height: "150px"}} src={tryingFind.picture} />
+                    </div>
+                    <h1 className="userTitle">{tryingFind.name} {tryingFind.lastName}</h1>
+                    <p className="userInfo userInfo_user">{tryingFind.username}</p>
+                    <p className="userInfo userInfo_cell">{tryingFind.cell}</p>
+                    <p className="userInfo userInfo_mail">{tryingFind.mail}</p>
+                </div>
             </div>
-        </div>
+            </>
+            }
+            
         </div>
     )
 }
