@@ -8,7 +8,7 @@ export function UsuarioProvider({children}) {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        fetch('https://randomuser.me/api/?results=50')
+        fetch('https://randomuser.me/api/?results=50&seed=abc')
             .then(response => response.json())
             .then(res => res.results)
             .then(initialResults => {
@@ -19,7 +19,7 @@ export function UsuarioProvider({children}) {
         
     },[]);
 
-    const value = {usersData, loading}
+    const value = {usersData}
     // console.log(value); 
 
     return <UsuarioContext.Provider value={value}>{children}</UsuarioContext.Provider>

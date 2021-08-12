@@ -6,7 +6,7 @@ import './styles/ListOfUsers.css'
 
 function ListOfUsers({data}) {
 
-    const { usersData } = useUsuario()
+    // const { usersData } = useUsuario()
 
     const [users, setUsers] = useState()
     const [loading, setLoading] = useState(true)
@@ -17,6 +17,8 @@ function ListOfUsers({data}) {
     //     setLoading(true)
     //     console.log('Object keys < 2');
     // }
+
+    // Puedo usar Object values
 
 
 

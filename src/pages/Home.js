@@ -13,7 +13,7 @@ function Home() {
     const [cargando, setCargando] = useState(true)
 
     useEffect(() => {
-        fetch('https://randomuser.me/api/?results=50')
+        fetch('https://randomuser.me/api/?results=50&seed=abc')
             .then(response => response.json())
             .then(res => res.results)
             .then(initialResults => {
