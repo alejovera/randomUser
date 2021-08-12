@@ -1,6 +1,10 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
-import { useUsuario } from '../context/userContext'
+import { useParams, Link } from 'react-router-dom';
+import { Avatar, Button } from '@material-ui/core';
+// import Button from '@material-ui/core/Button';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import { useUsuario } from '../context/userContext';
+import './styles/UserDetails.css';
 
 function UserDetails() {
 
@@ -34,10 +38,37 @@ function UserDetails() {
         
     return (
         <div>
-            <h1>{tryingFind.name} {tryingFind.lastName}</h1>
-            <p>{tryingFind.username}</p>
-            <p>{tryingFind.cell}</p>
-            <p>{tryingFind.mail}</p>
+            <Link to="/" style={{textDecoration: 'none'}}>
+                <Button
+                    style={{backgroundColor: 'rgba(0, 122, 201, 1)',
+                        color: 'white',
+                        marginTop: '1.5em',
+                        marginLeft: '1em'
+                    }}
+                    variant="contained"
+                    startIcon={<ArrowBackIcon />}
+                >
+                    See Users
+                </Button>
+            </Link>
+            {/* <ArrowBackIcon color="primary" style={{fontSize: 45}} /> */}
+        
+        <div className="userContainer">
+            
+            <div className="userGrid">
+                {/* <Badge color="primary" variant="dot" className="userBadge"
+                    anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'right',
+                    }}> */}
+                <Avatar className="userAvatar" style={{width: "150px", height: "150px"}} src={tryingFind.picture} />
+                {/* </Badge> */}
+                <h1 className="userTitle">{tryingFind.name} {tryingFind.lastName}</h1>
+                <p className="userInfo userInfo_user">{tryingFind.username}</p>
+                <p className="userInfo userInfo_cell">{tryingFind.cell}</p>
+                <p className="userInfo userInfo_mail">{tryingFind.mail}</p>
+            </div>
+        </div>
         </div>
     )
 }
